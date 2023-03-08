@@ -1,0 +1,14 @@
+package equipements.helmets;
+
+import equipements.*;
+
+import java.util.Formatter;
+
+public class Helmet extends Stuff {
+
+	public String toString() {
+		return String.format("%-10") + 
+				"Casque\n\n";
+	}
+	
+}

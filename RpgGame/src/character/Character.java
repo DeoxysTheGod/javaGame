@@ -1,9 +1,7 @@
 package character;
 
 import stat.BaseStat;
-
-import javax.management.ObjectInstance;
-
+import inventory.Inventory;
 import classes.*;
 import equipements.*;
 import equipements.helmets.*;
@@ -12,6 +10,7 @@ import equipements.rings.*;
 public class Character implements BaseStat {
 
 	private CharacterClass characterClass;
+	private Inventory inventory;
 	
 	// Base Stat
 	private int baseHp   ;
@@ -45,6 +44,8 @@ public class Character implements BaseStat {
 		default:
 			break;
 		}
+		
+		this.inventory = new Inventory();
 		
 		// Stat
 		this.baseHp   = BaseStat.hp     + this.characterClass.getBonusHp()   ;
@@ -81,6 +82,8 @@ public class Character implements BaseStat {
 		System.out.println(ring.toString());
 	}
 	
+	
+	
 	// Update des stats après avoir équipé quelquechose
 	
 	public void updateStat() {
@@ -111,6 +114,24 @@ public class Character implements BaseStat {
 			this.ring = new Stuff();
 		}
 		updateStat();
+	}
+	
+	// Inventory Management
+	
+	public void addItemToInventory(Stuff stuff) {
+		inventory.addItem(stuff);
+	}
+	
+	public String showItemFromInventory(int index) {
+		return inventory.showItem(index);
+	}
+	
+	public String showStockageOfInventory() {
+		return inventory.showStockage();
+	}
+	
+	public String getInventory() {
+		return inventory.toString();
 	}
 	
 	// toString

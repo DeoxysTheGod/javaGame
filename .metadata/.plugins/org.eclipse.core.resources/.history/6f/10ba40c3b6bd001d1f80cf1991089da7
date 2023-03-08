@@ -1,0 +1,20 @@
+package equipements.helmets;
+
+import equipements.*;
+
+public class NoHelmet extends Stuff {
+
+	public NoHelmet() {
+		super();
+	}
+
+	@Override
+	public String toString() {
+		return "-" + name + "" + "-¬\n" +
+				bonusHp   + " PV\n"   +
+				bonusAtk  + " ATK\n";
+	}
+	
+	
+	
+}

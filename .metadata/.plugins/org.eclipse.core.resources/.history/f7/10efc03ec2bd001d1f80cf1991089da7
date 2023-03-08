@@ -1,0 +1,13 @@
+package equipements.helmets;
+
+import equipements.*;
+
+import java.util.Formatter;
+
+public class Helmet extends Stuff {
+
+	public String toString() {
+		return "- Casque -\n\n";
+	}
+	
+}

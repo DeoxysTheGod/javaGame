@@ -16,12 +16,13 @@ public class Test {
 		
 		// creation of an inventory
 		System.out.println("********");
-		Inventory i1 = new Inventory();
-		System.out.println(i1);
+		c1.addItemToInventory(new LordRing());
+		c1.addItemToInventory(new LeatherHelmet());
+		c1.addItemToInventory(new LordRing());
+		System.out.println(c1.getInventory());
+		System.out.println("*********");
+		System.out.println(c1.showItemFromInventory(1));
+		System.out.println(c1.showStockageOfInventory());
 		
-		// create and add a stuff to it
-		Stuff h1 = new Helmet();
-		i1.addItem(h1);
-		System.out.println(i1);
 	}
 }

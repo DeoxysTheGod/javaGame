@@ -1,0 +1,13 @@
+package equipements.helmets;
+
+import equipements.*;
+
+public class Helmet extends Stuff {
+
+	public String toString() {
+		String sb = "12";
+		return "%09s".formatted() + 
+				"Casque\n\n";
+	}
+	
+}

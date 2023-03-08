@@ -23,5 +23,4 @@ public class LordRing extends Ring {
 				"%-4d Chance%n".formatted(bonusLuck);
 	}
 	
-	
 }

@@ -2,5 +2,6 @@
 .metadata/
 # hide .project file
 .project
-# hide .log file
-*.log
+# hide .git files
+.gitattributes
+.gitignore

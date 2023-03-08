@@ -2,7 +2,7 @@
 
 ## Normalisation de l'affichage des équipements
 
-Afin de garder un aspect cohérent dans le jeu, il faut présenter les méthodes `toString()` comme ceci :
+Afin de garder un aspect cohérent dans le jeu, il faut présenter les méthodes `toString()` des équipements comme ceci :
 
 ```java
 
@@ -16,3 +16,5 @@ public String toString() {
 }
 
 ```
+
+De même pour toutes les méthodes `toString()` qui représente des Statistiques mise part que le `super.toString()` peut être retiré en fonction du besoin.

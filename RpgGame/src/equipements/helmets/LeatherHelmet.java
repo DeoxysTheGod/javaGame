@@ -1,8 +1,6 @@
 package equipements.helmets;
 
-import equipements.Stuff;
-
-public class LeatherHelmet extends Stuff {
+public class LeatherHelmet extends Helmet {
 
 	public LeatherHelmet() {
 		super();
@@ -16,7 +14,11 @@ public class LeatherHelmet extends Stuff {
 	// toString
 
 	public String toString() {
-		return "LeatherHelmet[name=%s, hp=%d, def=%d, cc=%d]".formatted(this.name, this.bonusHp, this.bonusDef, this.bonusCc);
+		return super.toString() +
+				"%s%n".formatted(name) +
+				"%-4d PV%n".formatted(bonusHp) +
+				"%-4d DEF%n".formatted(bonusDef) +
+				"%-4d CC%n".formatted(bonusCc);
 	}
 	
 }

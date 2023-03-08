@@ -1,45 +1,26 @@
 package equipements.rings;
 
 public class LordRing extends Ring {
-
-	private String name;
-	private int hp   ;
-	private int atk  ;
-	private int def  ;
-	private int luck ;
 	
 	public LordRing() {
 		super();
 		this.name = "Anneau du Roi";
-		this.hp   = 40;
-		this.atk  = 20;
-		this.def  = 10;
-		this.luck = 2;
+		
+		this.bonusHp   = 40;
+		this.bonusAtk  = 20;
+		this.bonusDef  = 10;
+		this.bonusLuck = 2;
+		
+		this.dropRate = 5.0;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public int getHp() {
-		return hp;
-	}
-
-	public int getAtk() {
-		return atk;
-	}
-
-	public int getDef() {
-		return def;
-	}
-
-	public int getLuck() {
-		return luck;
-	}
-
-	@Override
 	public String toString() {
-		return "LordRing[name=" + name + ", hp=" + hp + ", atk=" + atk + ", def=" + def + ", luck=" + luck + "]";
+		return super.toString() +
+				"%s%n".formatted(name) +
+				"%-4d PV%n".formatted(bonusHp) +
+				"%-4d ATK%n".formatted(bonusAtk) +
+				"%-4d DEF%n".formatted(bonusDef) +
+				"%-4d Chance%n".formatted(bonusLuck);
 	}
 	
 	

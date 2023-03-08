@@ -8,11 +8,11 @@ Afin de garder un aspect cohérent dans le jeu, il faut présenter les méthodes
 
 public String toString() {
 	return super.toString() +
-		"%-4d PV".formatted(bonusHp)  +
-		"%-4d ATK".formatted(bonusAtk) +
-		"%-4d DEF".formatted(bonusDef) +
-		"%-4d CC".formatted(bonusCc)  +
-		"%-4d Chance".formatted(bonusLuck); 
+		"%-4d PV%n".formatted(bonusHp)  +
+		"%-4d ATK%n".formatted(bonusAtk) +
+		"%-4d DEF%n".formatted(bonusDef) +
+		"%-4d CC%n".formatted(bonusCc)  +
+		"%-4d Chance%n".formatted(bonusLuck); 
 }
 
 ```

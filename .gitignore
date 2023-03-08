@@ -1,2 +1,6 @@
+# hide repository .metadata/
 .metadata/
+# hide .project file
 .project
+# hide .log file
+*.log

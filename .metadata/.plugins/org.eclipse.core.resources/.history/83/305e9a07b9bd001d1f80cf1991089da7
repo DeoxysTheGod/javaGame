@@ -1,0 +1,45 @@
+package equipements.rings;
+
+public class Ring {
+
+	private String name;
+	private int bonusHp   ;
+	private int atk  ;
+	private int def  ;
+	private int cc   ;
+	private int luck ;
+	
+	public Ring() {
+		this.name = "None";
+		this.bonusHp   = 0 ;
+		this.atk  = 0 ;
+		this.def  = 0 ;
+		this.cc   = 0 ;
+		this.luck = 0 ;
+	}
+
+	public String getName() {
+		return name;
+	}
+	public int getHp() {
+		return bonusHp;
+	}
+	public int getAtk() {
+		return atk;
+	}
+	public int getDef() {
+		return def;
+	}
+	public int getCc() {
+		return cc;
+	}
+	public int getLuck() {
+		return luck;
+	}
+
+	@Override
+	public String toString() {
+		return "Ring [name=" + name + ", hp=" + bonusHp + ", atk=" + atk + ", def=" + def + ", cc=" + cc + ", luck=" + luck
+				+ "]";
+	}	
+}

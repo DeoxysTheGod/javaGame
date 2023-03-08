@@ -1,0 +1,15 @@
+package equipements;
+
+public class Stuff {
+	
+	private int id;
+	
+	private String name;
+
+	private int bonusHp   ;
+	private int bonusAtk  ;
+	private int bonusDef  ;
+	private int bonusCc   ;
+	private int bonusLuck ;
+	
+}

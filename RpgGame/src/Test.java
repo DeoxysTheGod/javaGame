@@ -1,6 +1,7 @@
 import character.Character;
 import equipements.helmets.*;
 import equipements.rings.*;
+import equipements.*;
 
 public class Test {
 
@@ -12,7 +13,7 @@ public class Test {
 		System.out.println(c1.getHelmet());
 		
 		// equipement d'un casque en cuir
-		Helmet h1 = new LeatherHelmet();
+		Stuff h1 = new LeatherHelmet();
 		c1.equipHelmet(h1);
 		
 		System.out.println("----------");

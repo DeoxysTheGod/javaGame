@@ -1,39 +1,22 @@
 package equipements.helmets;
 
-public class LeatherHelmet extends Helmet{
+import equipements.Stuff;
 
-	private String name;
-	private int hp;
-	private int def;
-	private int cc ;
-	
+public class LeatherHelmet extends Stuff {
+
 	public LeatherHelmet() {
 		super();
 		this.name = "Casque en cuir";
-		this.hp  = 10 ;
-		this.def = 10 ;
-		this.cc  =  1 ;
-	}
-	
-	// Getter
-	
-	public String getName() {
-		return name;
-	}
-	public int getHp() {
-		return hp;
-	}
-	public int getDef() {
-		return def;
-	}
-	public int getCc() {
-		return cc;
+		this.bonusHp  = 10 ;
+		this.bonusDef = 10 ;
+		this.bonusCc  =  1 ;
+		this.dropRate = 20.0 ;
 	}
 
 	// toString
 
 	public String toString() {
-		return "LeatherHelmet[name=%s, hp=%d, def=%d, cc=%d]".formatted(name, hp, def, cc);
+		return "LeatherHelmet[name=%s, hp=%d, def=%d, cc=%d]".formatted(this.name, this.bonusHp, this.bonusDef, this.bonusCc);
 	}
 	
 }

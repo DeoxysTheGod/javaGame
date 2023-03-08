@@ -2,6 +2,7 @@ package character;
 
 import stat.BaseStat;
 import classes.*;
+import equipements.*;
 import equipements.helmets.*;
 import equipements.rings.*;
 
@@ -17,7 +18,7 @@ public class Character implements BaseStat {
 	private int baseLuck ;
 	
 	// Equipements
-	private Helmet helmet;
+	private Stuff helmet;
 	private Ring ring;
 	
 	// Final Stat
@@ -50,7 +51,7 @@ public class Character implements BaseStat {
 		this.baseLuck = BaseStat.luck   + this.characterClass.getBonusLuck() ;
 		
 		// Equipements
-		this.helmet = new Helmet();
+		this.helmet = new NoHelmet();
 		this.ring = new Ring();
 		
 		// Final Stat
@@ -74,22 +75,22 @@ public class Character implements BaseStat {
 	// Update des stats après avoir équipé quelquechose
 	
 	public void updateStat() {
-		this.finalHp   = this.baseHp   + helmet.getHp()   + ring.getHp()   ;
-		this.finalAtk  = this.baseAtk  + helmet.getAtk()  + ring.getAtk()  ;
-		this.finalDef  = this.baseDef  + helmet.getDef()  + ring.getDef()  ;
-		this.finalCc   = this.baseCc   + helmet.getCc()   + ring.getCc()   ;
-		this.finalLuck = this.baseLuck + helmet.getLuck() + ring.getLuck() ;
+		this.finalHp   = this.baseHp   + helmet.getBonusHp()   + ring.getHp()   ;
+		this.finalAtk  = this.baseAtk  + helmet.getBonusAtk()  + ring.getAtk()  ;
+		this.finalDef  = this.baseDef  + helmet.getBonusDef()  + ring.getDef()  ;
+		this.finalCc   = this.baseCc   + helmet.getBonusCc()   + ring.getCc()   ;
+		this.finalLuck = this.baseLuck + helmet.getBonusLuck() + ring.getLuck() ;
 	}
 	
 	// Setter and Unsetter
 	
-	public void equipHelmet(Helmet helmet) {
+	public void equipHelmet(Stuff helmet) {
 		this.helmet = helmet;
 		updateStat();
 	}
 	
 	public void disequipHelmet() {
-		this.helmet = new Helmet();
+		this.helmet = new NoHelmet();
 		updateStat();
 	}
 	

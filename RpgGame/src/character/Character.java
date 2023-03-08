@@ -1,6 +1,9 @@
 package character;
 
 import stat.BaseStat;
+
+import javax.management.ObjectInstance;
+
 import classes.*;
 import equipements.*;
 import equipements.helmets.*;
@@ -19,7 +22,7 @@ public class Character implements BaseStat {
 	
 	// Equipements
 	private Stuff helmet;
-	private Ring ring;
+	private Stuff ring;
 	
 	// Final Stat
 	private int finalHp   ;
@@ -75,25 +78,36 @@ public class Character implements BaseStat {
 	// Update des stats après avoir équipé quelquechose
 	
 	public void updateStat() {
-		this.finalHp   = this.baseHp   + helmet.getBonusHp()   + ring.getHp()   ;
-		this.finalAtk  = this.baseAtk  + helmet.getBonusAtk()  + ring.getAtk()  ;
-		this.finalDef  = this.baseDef  + helmet.getBonusDef()  + ring.getDef()  ;
-		this.finalCc   = this.baseCc   + helmet.getBonusCc()   + ring.getCc()   ;
-		this.finalLuck = this.baseLuck + helmet.getBonusLuck() + ring.getLuck() ;
+		this.finalHp   = this.baseHp   + helmet.getBonusHp()   + ring.getBonusHp()   ;
+		this.finalAtk  = this.baseAtk  + helmet.getBonusAtk()  + ring.getBonusAtk()  ;
+		this.finalDef  = this.baseDef  + helmet.getBonusDef()  + ring.getBonusDef()  ;
+		this.finalCc   = this.baseCc   + helmet.getBonusCc()   + ring.getBonusCc()   ;
+		this.finalLuck = this.baseLuck + helmet.getBonusLuck() + ring.getBonusLuck() ;
 	}
 	
 	// Setter and Unsetter
 	
-	public void equipHelmet(Stuff helmet) {
-		this.helmet = helmet;
+	public void equipStuff(Stuff stuff) {
+		if (stuff instanceof Helmet) {
+			this.helmet = stuff;
+		}
+		else if (stuff instanceof Ring) {
+			this.ring = stuff;
+		}
 		updateStat();
 	}
 	
-	public void disequipHelmet() {
-		this.helmet = new NoHelmet();
+	public void disequipStuff(Stuff stuff) {
+		if (stuff instanceof Helmet) {
+			this.helmet = new Stuff();
+		}
+		else if (stuff instanceof Ring) {
+			this.ring = new Stuff();
+		}
 		updateStat();
 	}
 	
+	/*
 	public void equipRing(Ring ring) {
 		this.ring = ring;
 		updateStat();
@@ -103,16 +117,16 @@ public class Character implements BaseStat {
 		this.ring = new Ring();
 		updateStat();
 	}
-	
+	*/
 	// toString
 	
 	public String toString() {
-		return "Character[characterClass=" + characterClass +
-				", hp="   + finalHp   +
-				", atk="  + finalAtk  +
-				", def="  + finalDef  +
-				", cc="   + finalCc   +
-				", luck=" + finalLuck + "]";
+		return "Class : %s%n".formatted(characterClass) +
+				"%d PV%n".formatted(finalHp) +
+				"%d ATK%n".formatted(finalAtk) +
+				"%d DEF%n".formatted(finalDef) +
+				"%d CC%n".formatted(finalCc) +
+				"%d Chance%n".formatted(finalLuck);
 	}
 	
 }

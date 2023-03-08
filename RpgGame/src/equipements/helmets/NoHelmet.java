@@ -1,8 +1,6 @@
 package equipements.helmets;
 
-import equipements.*;
-
-public class NoHelmet extends Stuff {
+public class NoHelmet extends Helmet {
 
 	public NoHelmet() {
 		super();

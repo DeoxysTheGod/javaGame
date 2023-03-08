@@ -1,12 +1,11 @@
 package equipements.boots;
 
-import equipements.leggings.Leggings;
-
-public class LeatherBoots extends Leggings {
+public class LeatherBoots extends Boots {
 
 	public LeatherBoots() {
 		super();
 		this.name = "Jambière en cuir";
+		
 		this.bonusHp  = 10 ;
 		this.bonusDef = 10 ;
 		this.bonusCc  =  1 ;

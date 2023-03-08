@@ -1,10 +1,10 @@
-package equipements.chest;
+package equipements.chestplates;
 
-import equipements.leggings.Leggings;
+import equipements.leggings.Legging;
 
-public class LeatherChest extends Leggings {
+public class LeatherChestplates extends Chestplates {
 
-	public LeatherChest() {
+	public LeatherChestplates() {
 		super();
 		this.name = "Plastron en cuir";
 		this.bonusHp  = 10 ;

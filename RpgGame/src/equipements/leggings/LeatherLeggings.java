@@ -1,6 +1,6 @@
 package equipements.leggings;
 
-public class LeatherLeggings extends Leggings {
+public class LeatherLeggings extends Legging {
 
 	public LeatherLeggings() {
 		super();

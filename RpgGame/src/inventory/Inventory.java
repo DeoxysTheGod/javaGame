@@ -25,12 +25,26 @@ public class Inventory {
 		return "" + nbItems + "/" + stuffs.length ;
 	}
 
-	public String getItem(int index) {
+	public Stuff getItem(int index) {
+		if (stuffs[index] == null)
+			return null;
+		return stuffs[index];
+	}
+	
+	public String getItemInfo(int index) {
 		if (stuffs[index] == null)
 			return "Out of range";
 		return stuffs[index].toString();
 	}
 
+	public void removeItem(int index) {
+		if (index < stuffs.length) {
+			stuffs[index] = null;
+		}
+		else
+			System.out.println("Out of range");
+	}
+	
 	public Inventory addItem(Stuff stuff) {
 		if (isFull()) {
 			System.out.println("Inventory is full");
@@ -40,7 +54,8 @@ public class Inventory {
 				if (stuffs[i] != null)
 					continue;
 				stuffs[i] = stuff;
-				++nbItems;
+				if (stuff != null)
+					++nbItems;
 				break;
 			}
 		}
@@ -49,11 +64,15 @@ public class Inventory {
 
 	public String toString() {
 		String str = "";
+		int cpt = 0;
 		for (int i = 0; i < stuffs.length; ++i) {
 			if (stuffs[i] == null)
-				break;
+				continue;
 			str += i + " - " + stuffs[i].getName();
 			str += "\n";
+			++cpt;
+			if (cpt >= nbItems)
+				break;
 		}
 		return str;
 	}

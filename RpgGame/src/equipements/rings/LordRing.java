@@ -15,11 +15,12 @@ public class LordRing extends Ring {
 	}
 
 	public String toString() {
-		return "-%s-%n".formatted(name) +
-				"%d PV%n".formatted(bonusHp) +
-				"%d ATK%n".formatted(bonusAtk) +
-				"%d DEF%n".formatted(bonusDef) +
-				"%d Chance%n".formatted(bonusLuck);
+		return super.toString() +
+				"%s%n".formatted(name) +
+				"%-4d PV%n".formatted(bonusHp) +
+				"%-4d ATK%n".formatted(bonusAtk) +
+				"%-4d DEF%n".formatted(bonusDef) +
+				"%-4d Chance%n".formatted(bonusLuck);
 	}
 	
 	

@@ -54,7 +54,7 @@ public class Character implements BaseStat {
 		this.baseLuck = BaseStat.luck   + this.characterClass.getBonusLuck() ;
 		
 		// Equipements
-		this.helmet = new NoHelmet();
+		this.helmet = new Helmet();
 		this.ring = new Ring();
 		
 		// Final Stat
@@ -73,6 +73,12 @@ public class Character implements BaseStat {
 	
 	public String getRing() {
 		return ring.toString();
+	}
+	
+	public void showStuff() {
+		System.out.println("---- Inventaire ----\n");
+		System.out.println(helmet.toString());
+		System.out.println(ring.toString());
 	}
 	
 	// Update des stats après avoir équipé quelquechose
@@ -107,17 +113,6 @@ public class Character implements BaseStat {
 		updateStat();
 	}
 	
-	/*
-	public void equipRing(Ring ring) {
-		this.ring = ring;
-		updateStat();
-	}
-	
-	public void disequipRing() {
-		this.ring = new Ring();
-		updateStat();
-	}
-	*/
 	// toString
 	
 	public String toString() {

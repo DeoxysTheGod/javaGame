@@ -11,6 +11,7 @@ public class Test {
 		c1.equipStuff(new LeatherHelmet());
 		c1.equipStuff(new LordRing());
 		System.out.println(c1);
+		c1.showStuff();
 		
 	}	
 }

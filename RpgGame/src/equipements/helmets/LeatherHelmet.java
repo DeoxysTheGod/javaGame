@@ -14,10 +14,11 @@ public class LeatherHelmet extends Helmet {
 	// toString
 
 	public String toString() {
-		return "-%s-%n".formatted(name) +
-				"%d PV%n".formatted(bonusHp) +
-				"%d DEF%n".formatted(bonusDef) +
-				"%d CC%n".formatted(bonusCc);
+		return super.toString() +
+				"%s%n".formatted(name) +
+				"%-4d PV%n".formatted(bonusHp) +
+				"%-4d DEF%n".formatted(bonusDef) +
+				"%-4d CC%n".formatted(bonusCc);
 	}
 	
 }

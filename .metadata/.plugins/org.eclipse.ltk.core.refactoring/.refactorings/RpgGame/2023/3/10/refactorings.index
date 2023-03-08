@@ -5,3 +5,5 @@
 1678283806105	Rename field 'cc'
 1678283815146	Rename field 'luck'
 1678286279072	Delete element
+1678296973834	Rename method 'showStockage'
+1678296993147	Rename method 'showItem'

@@ -5,38 +5,37 @@ import equipements.*;
 public class Inventory {
 	
 	private Stuff[] stuffs;
+	private int size;
 	private int nbItems;
 
 	public Inventory() {
-		this.stuffs = new Stuff[64];
+		this.size = 64;
+		this.stuffs = new Stuff[size];
 		this.nbItems = 0;
 	}
 	
 	public Inventory(int size) {
+		this.size = size;
 		this.stuffs = new Stuff[size];
 		this.nbItems = 0;
 	}
 
-	public boolean isFull() {
-		return nbItems >= stuffs.length;
-	}
-	
-	public String getStockage() {
-		return "" + nbItems + "/" + stuffs.length ;
+	public String showStockage() {
+		return "" + nbItems + "/" + size;
 	}
 
-	public String getItem(int index) {
+	public String showItem(int index) {
 		if (stuffs[index] == null)
 			return "Out of range";
 		return stuffs[index].toString();
 	}
 
 	public Inventory addItem(Stuff stuff) {
-		if (isFull()) {
+		if (nbItems >= size) {
 			System.out.println("Inventory is full");
 		}
 		else {
-			for (int i = 0; i < stuffs.length; ++i) {
+			for (int i = 0; i < size; ++i) {
 				if (stuffs[i] != null)
 					continue;
 				stuffs[i] = stuff;
@@ -49,7 +48,7 @@ public class Inventory {
 
 	public String toString() {
 		String str = "";
-		for (int i = 0; i < stuffs.length; ++i) {
+		for (int i = 0; i < size; ++i) {
 			if (stuffs[i] == null)
 				break;
 			str += i + " - " + stuffs[i].getName();

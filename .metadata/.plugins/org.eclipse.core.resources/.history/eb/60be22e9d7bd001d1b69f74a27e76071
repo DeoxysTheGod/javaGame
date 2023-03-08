@@ -21,8 +21,8 @@ public class Test {
 		c1.addItemToInventory(new LordRing());
 		System.out.println(c1.getInventory());
 		System.out.println("*********");
-		System.out.println(c1.getItemFromInventory(1));
-		System.out.println(c1.getStockageOfInventory());
+		System.out.println(c1.showItemFromInventory(1));
+		System.out.println(c1.showStockageOfInventory());
 		
 	}
 }

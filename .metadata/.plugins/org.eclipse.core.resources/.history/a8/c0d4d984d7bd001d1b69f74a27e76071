@@ -45,7 +45,7 @@ public class Character implements BaseStat {
 			break;
 		}
 		
-		this.inventory = new Inventory();
+		this.inventory = new Inventory(2);
 		
 		// Stat
 		this.baseHp   = BaseStat.hp     + this.characterClass.getBonusHp()   ;
@@ -122,12 +122,12 @@ public class Character implements BaseStat {
 		inventory.addItem(stuff);
 	}
 	
-	public String getItemFromInventory(int index) {
-		return inventory.getItem(index);
+	public String showItemFromInventory(int index) {
+		return inventory.showItem(index);
 	}
 	
-	public String getStockageOfInventory() {
-		return inventory.getStockage();
+	public String showStockageOfInventory() {
+		return inventory.showStockage();
 	}
 	
 	public String getInventory() {

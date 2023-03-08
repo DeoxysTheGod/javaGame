@@ -122,11 +122,11 @@ public class Character implements BaseStat {
 		inventory.addItem(stuff);
 	}
 	
-	public String getItemFromInventory(int index) {
-		return inventory.getItem(index);
+	public String showItemFromInventory(int index) {
+		return inventory.showItem(index);
 	}
 	
-	public String getStockageOfInventory() {
+	public String showStockageOfInventory() {
 		return inventory.getStockage();
 	}
 	

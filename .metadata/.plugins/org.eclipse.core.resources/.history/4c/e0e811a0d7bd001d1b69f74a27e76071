@@ -21,11 +21,11 @@ public class Inventory {
 		return nbItems >= stuffs.length;
 	}
 	
-	public String getStockage() {
-		return "" + nbItems + "/" + stuffs.length ;
+	public String showStockage() {
+		return "" + nbItems + "/" + stuffs.length + 1;
 	}
 
-	public String getItem(int index) {
+	public String showItem(int index) {
 		if (stuffs[index] == null)
 			return "Out of range";
 		return stuffs[index].toString();

@@ -17,4 +17,4 @@ public String toString() {
 
 ```
 
-De même pour toutes les méthodes `toString()` qui représente des Statistiques mise part que le `super.toString()` peut être retiré en fonction du besoin.
+De même pour toutes les méthodes `toString()` qui représente des statistiques mise à part que le `super.toString()` peut être retiré en fonction du besoin.

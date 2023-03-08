@@ -6,6 +6,7 @@ public class Inventory {
 	
 	private Stuff[] stuffs;
 	private int size;
+	private int nbItems;
 
 	public Inventory() {
 		this.size = 64;
@@ -15,14 +16,14 @@ public class Inventory {
 	public Inventory(int size, Stuff[] items) {
 		super();
 		this.size = size;
+		this.nbItems = 0;
 		for (int i = 0; i < items.length; ++i) {
 			this.stuffs[i] = items[i];
 		}
 	}
 
 	public String showStockage() {
-		int sizeRemaining = size - stuffs.length;
-		return "" + sizeRemaining + "/" + size;
+		return "" + nbItems + "/" + size;
 	}
 
 	public String showItem(int index) {
@@ -36,6 +37,7 @@ public class Inventory {
 			if (stuffs[i] != null)
 				continue;
 			stuffs[i] = stuff;
+			nbItems += 1;
 			break;
 		}
 		return this;

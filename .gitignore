@@ -1,7 +1,0 @@
-# hide repository .metadata/
-.metadata/
-# hide .project file
-.project
-# hide .git files
-.gitattributes
-.gitignore

@@ -8,10 +8,8 @@ public class NoHelmet extends Stuff {
 		super();
 	}
 
-	@Override
 	public String toString() {
-		return "NoHelmet[name=" + name + ", bonusHp=" + bonusHp + ", bonusAtk=" + bonusAtk
-				+ ", bonusDef=" + bonusDef + ", bonusCc=" + bonusCc + ", bonusLuck=" + bonusLuck + "]";
+		return "-" + name + "" + "-\n";
 	}
 	
 	

@@ -16,7 +16,10 @@ public class LeatherHelmet extends Stuff {
 	// toString
 
 	public String toString() {
-		return "LeatherHelmet[name=%s, hp=%d, def=%d, cc=%d]".formatted(this.name, this.bonusHp, this.bonusDef, this.bonusCc);
+		return "-" + name + "" + "-\n" +
+				bonusHp   + " PV\n"   +
+				bonusDef  + " DEF\n"  +
+				bonusCc   + " CC\n";
 	}
 	
 }

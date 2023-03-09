@@ -106,12 +106,17 @@ public class Character implements BaseStat {
 	}
 	
 	public void getStuff() {
-		System.out.println("---- Inventaire ----\n");
-		System.out.println(helmet.toString());
-		System.out.println(chestplate.toString());
-		System.out.println(ring.toString());
-		System.out.println(legging.toString());
-		System.out.println(boots.toString());
+		System.out.println("---- Équipement ----\n");
+		if (helmet != null)
+			System.out.println(helmet.toString());
+		if (chestplate != null)
+			System.out.println(chestplate.toString());
+		if (ring != null)
+			System.out.println(ring.toString());
+		if (legging != null)
+			System.out.println(legging.toString());
+		if (boots != null)
+			System.out.println(boots.toString());
 	}
 	
 	

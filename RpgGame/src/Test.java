@@ -1,8 +1,6 @@
 import character.Character;
 import equipements.helmets.*;
 import equipements.rings.*;
-import inventory.Inventory;
-import equipements.*;
 
 public class Test {
 
@@ -34,9 +32,9 @@ public class Test {
 		System.out.println(c1);
 		System.out.println(c1.getInventory());
 		
-		/* ceci ne fonctionne pas à cause du getStuff je changerai plutard
 		System.out.println("**********");
+		c1.equipStuff(0);
+		c1.equipStuff(1);
 		c1.getStuff();
-		*/
 	}
 }

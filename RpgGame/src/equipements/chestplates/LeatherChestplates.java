@@ -1,7 +1,5 @@
 package equipements.chestplates;
 
-import equipements.leggings.Legging;
-
 public class LeatherChestplates extends Chestplates {
 
 	public LeatherChestplates() {

@@ -36,6 +36,9 @@ public class Character implements BaseStat {
 	private int finalCc   ;
 	private int finalLuck ;
 	
+	// Status
+	private boolean dead;
+		
 	public Character(String characterClass) {
 		switch(characterClass) {
 		
@@ -242,9 +245,37 @@ public class Character implements BaseStat {
 		return inventory.toString();
 	}
 	
+	// Status
+	
+	public boolean isDead() {
+		return dead;
+	}
+		
+	// Combat
+	
+	public void attack(Character opponent) {
+		if (opponent.isDead()) {
+			System.err.println("The opponent is already dead !");
+			return;
+		}
+		if ((opponent.finalHp = opponent.finalHp - (this.finalAtk - opponent.finalDef)) <= 0) {
+				opponent.dead = true;
+			opponent.finalHp = 0;
+		}
+	}
+	
 	// toString
 	
 	public String toString() {
+		if (this.isDead()) {
+			return "Class : [DEAD] %s%n".formatted(characterClass) +
+					"%d PV%n".formatted(finalHp) +
+					"%d ATK%n".formatted(finalAtk) +
+					"%d DEF%n".formatted(finalDef) +
+					"%d CC%n".formatted(finalCc) +
+					"%d Chance%n".formatted(finalLuck);
+		}
+		
 		return "Class : %s%n".formatted(characterClass) +
 				"%d PV%n".formatted(finalHp) +
 				"%d ATK%n".formatted(finalAtk) +

@@ -1,1 +1,4 @@
 /bin/
+.metadata
+.gitattributes
+.classpath

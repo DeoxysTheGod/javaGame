@@ -1,9 +1,0 @@
-package equipements.helmets;
-
-public class NoHelmet  extends Stuff {
-
-	public NoHelmet() {
-		super();
-	}
-	
-}

@@ -17,7 +17,7 @@ public class Test {
 		System.out.println(c1.getInventory());
 		System.out.println(c1.getStockageOfInventory());
 		System.out.println("*********");
-		System.out.println(c1.getItemFromInventoryInfo(1));
+		System.out.println(c1.getItemInfoFromInventory(1));
 		
 		System.out.println("**********");
 		c1.equipStuff(1);

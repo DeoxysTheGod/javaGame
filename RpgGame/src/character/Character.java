@@ -225,7 +225,7 @@ public class Character implements BaseStat {
 		inventory.addItem(stuff);
 	}
 	
-	public String getItemFromInventoryInfo(int index) {
+	public String getItemInfoFromInventory(int index) {
 		return inventory.getItemInfo(index);
 	}
 	

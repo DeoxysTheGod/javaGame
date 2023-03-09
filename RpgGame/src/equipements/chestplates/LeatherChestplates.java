@@ -7,10 +7,12 @@ public class LeatherChestplates extends Chestplates {
 	public LeatherChestplates() {
 		super();
 		this.name = "Plastron en cuir";
-		this.bonusHp  = 10 ;
-		this.bonusDef = 20 ;
+		
+		this.bonusHp  = 2 ;
+		this.bonusDef = 3 ;
 		this.bonusCc  =  0 ;
-		this.dropRate = 10.0 ;
+		
+		this.dropRate = 40.0 ;
 	}
 
 	// toString

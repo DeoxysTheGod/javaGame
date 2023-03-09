@@ -6,10 +6,11 @@ public class LeatherBoots extends Boots {
 		super();
 		this.name = "Jambière en cuir";
 		
-		this.bonusHp  = 10 ;
-		this.bonusDef = 10 ;
-		this.bonusCc  =  1 ;
-		this.dropRate = 20.0 ;
+		this.bonusHp  = 2 ;
+		this.bonusDef = 2 ;
+		this.bonusCc  =  0;
+		
+		this.dropRate = 40.0 ;
 	}
 
 	// toString

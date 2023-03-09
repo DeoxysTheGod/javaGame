@@ -20,4 +20,4 @@ public String toString() {
 De même pour toutes les méthodes `toString()` qui représente des statistiques mise à part que le `super.toString()` peut être retiré en fonction du besoin.
 
 
-** Attention on ne met que les valeurs qui sont différentes de 0 **
+**Attention on ne met que les valeurs qui sont différentes de 0**

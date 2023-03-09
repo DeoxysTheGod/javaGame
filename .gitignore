@@ -1,0 +1,6 @@
+.metadata
+.gitattributes
+.project
+/RpgGame/.settings/
+/RpgGame/bin/
+.classpath

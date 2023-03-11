@@ -159,9 +159,9 @@ public class Character implements BaseStat {
 		
 		this.finalLvl  = this.baseLvl  ;
 		
-		if (this.finalXp >= BaseStat.amountLvlUp) {
-			while (this.finalXp >= BaseStat.amountLvlUp) {
-				this.finalXp -= BaseStat.amountLvlUp;
+		if (this.finalXp >= baseAmountLvlUp) {
+			while (this.finalXp >= baseAmountLvlUp) {
+				this.finalXp -= baseAmountLvlUp;
 				this.finalLvl += 1;
 			} 
 		}

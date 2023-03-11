@@ -2,7 +2,6 @@ package equipements;
 
 
 /**
- * 
  * @author Quentin B.
  * 
  * Description :
@@ -23,7 +22,7 @@ public class Stuff {
 	 * <i>int</i> <b>bonusCc</b> : bonus de chance de coup critique
 	 * -------------------------------------------------------------
 	 * 
-	 * <i>double</> <b>dropRate</b> : Taux de drop de l'objet
+	 * <i>double</i> <b>dropRate</b> : Taux de drop de l'objet
 	 */
 	protected String name;
 	

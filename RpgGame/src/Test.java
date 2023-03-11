@@ -45,5 +45,10 @@ public class Test {
 		c1.attack(c2);
 		System.out.println(c1);
 		System.out.println(c2);
+		
+		// Lvl test
+		System.out.println("**********");
+		c1.giveXp(120);
+		System.out.println(c1);
 	}
 }

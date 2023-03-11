@@ -1,6 +1,7 @@
 .metadata
 .gitattributes
 .project
+/RpgGame/src/prototype.txt
 /RpgGame/.settings/
 /RpgGame/bin/
 .classpath

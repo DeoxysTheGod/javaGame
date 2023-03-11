@@ -258,7 +258,7 @@ public class Character implements BaseStat {
 			System.err.println("The opponent is already dead !");
 			return;
 		}
-		if ((opponent.finalHp = opponent.finalHp - (this.finalAtk - opponent.finalDef)) <= 0) {
+		if ((opponent.finalHp -= this.finalAtk * opponent.finalDef / 100) <= 0) {
 				opponent.dead = true;
 			opponent.finalHp = 0;
 		}

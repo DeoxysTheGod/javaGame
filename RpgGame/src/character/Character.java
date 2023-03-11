@@ -139,15 +139,72 @@ public class Character implements BaseStat {
 	
 	public void giveXp(int amount) {
 		this.finalXp += amount;
-		updateStat();
+		updateLvl();
+	}
+	
+	public void takeXp(int amount) {
+	    this.finalXp -= amount;
+	    while (this.finalXp < 0) {
+	        if (this.finalLvl > 0) {
+	            this.finalLvl--;
+	            this.finalXp += baseAmountLvlUp;
+	        } else {
+	            this.finalXp = 0;
+	            break;
+	        }
+	    }
 	}
 	
 	public void giveLvl(int amount) {
 		this.finalLvl += amount;
-		updateStat();
+		updateLvl();
 	}
 	
-	// Update des stats après avoir équipé quelquechose
+	public void takeLvl(int amount) {
+	    int totalLvl = this.finalLvl - amount;
+	    if (totalLvl < 0) {
+	        this.finalLvl = 0;
+	    } else {
+	        this.finalLvl = totalLvl;
+	    }
+	}
+	
+	public void resetLvl() {
+		this.finalLvl = 0;
+	}
+	
+	public void resetXp() {
+		this.finalXp = 0;
+	}
+	
+	public void resetLvlXp() {
+		this.finalLvl = 0;
+		this.finalXp = 0;
+	}
+	
+	public void lvlSameAs(Character c) {
+		this.finalLvl = c.finalLvl;
+	}
+	
+	public void xpSameAs(Character c) {
+		this.finalXp = c.finalXp;
+	}
+	
+	public void lvlXpSameAs(Character c) {
+		this.finalLvl = c.finalLvl;
+		this.finalXp = c.finalXp;
+	}
+	
+	// Update des stats
+	
+	public void updateLvl() {
+	    while (this.finalXp >= baseAmountLvlUp) {
+	        this.finalXp -= baseAmountLvlUp;
+	        this.finalLvl++;
+	    }
+	}
+	
+	// Après avoir équipé quelque chose
 	
 	public void updateStat() {
 		
@@ -156,17 +213,6 @@ public class Character implements BaseStat {
 		this.finalDef  = this.baseDef  ;
 		this.finalCc   = this.baseCc   ;
 		this.finalLuck = this.baseLuck ;
-		
-		this.finalLvl  = this.baseLvl  ;
-		
-		if (this.finalXp >= BaseStat.amountLvlUp) {
-			while (this.finalXp >= BaseStat.amountLvlUp) {
-				this.finalXp -= BaseStat.amountLvlUp;
-				this.finalLvl += 1;
-			} 
-		}
-		
-		else this.finalXp = this.baseXp;
 		
 		if (boots != null) {
 			this.finalHp   = this.baseHp   + boots.getBonusHp()   ;

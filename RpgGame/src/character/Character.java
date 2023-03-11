@@ -16,18 +16,21 @@ public class Character implements BaseStat {
 	private Inventory inventory;
 	
 	// Base Stat
-	private int baseHp   ;
-	private int baseAtk  ;
-	private int baseDef  ;
-	private int baseCc   ;
-	private int baseLuck ;
+	private int baseHp   	   	;
+	private int baseAtk  	   	;
+	private int baseDef  	   	;
+	private int baseCc   	   	;
+	private int baseLuck 	   	;
+	private int baseLvl	 	   	;
+	private int baseXp	 	   	;
+	private int baseAmountLvlUp	;
 	
 	// Equipements
-	private Stuff boots;
-	private Stuff chestplate;
-	private Stuff helmet;
-	private Stuff legging;
-	private Stuff ring;
+	private Stuff boots		 ;
+	private Stuff chestplate ;
+	private Stuff helmet	 ;
+	private Stuff legging	 ;
+	private Stuff ring		 ;
 	
 	// Final Stat
 	private int finalHp   ;
@@ -35,6 +38,8 @@ public class Character implements BaseStat {
 	private int finalDef  ;
 	private int finalCc   ;
 	private int finalLuck ;
+	private int finalLvl  ;
+	private int finalXp	  ;
 	
 	// Status
 	private boolean dead;
@@ -57,11 +62,14 @@ public class Character implements BaseStat {
 		this.inventory = new Inventory();
 		
 		// Stat
-		this.baseHp   = BaseStat.hp     + this.characterClass.getBonusHp()   ;
-		this.baseAtk  = BaseStat.atk    + this.characterClass.getBonusAtk()  ;
-		this.baseDef  = BaseStat.def    + this.characterClass.getBonusDef()  ;
-		this.baseCc   = BaseStat.cc     + this.characterClass.getBonusCc()   ;
-		this.baseLuck = BaseStat.luck   + this.characterClass.getBonusLuck() ;
+		this.baseHp   		 = BaseStat.hp     + this.characterClass.getBonusHp()   ;
+		this.baseAtk  		 = BaseStat.atk    + this.characterClass.getBonusAtk()  ;
+		this.baseDef  		 = BaseStat.def    + this.characterClass.getBonusDef()  ;
+		this.baseCc   		 = BaseStat.cc     + this.characterClass.getBonusCc()   ;
+		this.baseLuck 		 = BaseStat.luck   + this.characterClass.getBonusLuck() ;
+		this.baseLvl  		 = BaseStat.lvl							   			    ;
+		this.baseXp   		 = BaseStat.xp											;
+		this.baseAmountLvlUp = BaseStat.amountLvlUp							 		;
 		
 		// Equipements
 		this.helmet = null;
@@ -73,6 +81,8 @@ public class Character implements BaseStat {
 		this.finalDef  = this.baseDef  ;
 		this.finalCc   = this.baseCc   ;
 		this.finalLuck = this.baseLuck ;
+		this.finalLvl  = this.baseLvl  ;
+		this.finalXp   = this.baseXp   ;
 	}
 	
 	// Getter
@@ -122,7 +132,17 @@ public class Character implements BaseStat {
 			System.out.println(boots.toString());
 	}
 	
+	// Stats
 	
+	public void giveXp(int amount) {
+		this.finalXp += amount;
+		updateStat();
+	}
+	
+	public void giveLvl(int amount) {
+		this.finalLvl += amount;
+		updateStat();
+	}
 	
 	// Update des stats après avoir équipé quelquechose
 	
@@ -133,6 +153,17 @@ public class Character implements BaseStat {
 		this.finalDef  = this.baseDef  ;
 		this.finalCc   = this.baseCc   ;
 		this.finalLuck = this.baseLuck ;
+		
+		this.finalLvl  = this.baseLvl  ;
+		
+		if (this.finalXp >= BaseStat.amountLvlUp) {
+			while (this.finalXp >= BaseStat.amountLvlUp) {
+				this.finalXp -= BaseStat.amountLvlUp;
+				this.finalLvl += 1;
+			} 
+		}
+		
+		else this.finalXp = this.baseXp;
 		
 		if (boots != null) {
 			this.finalHp   = this.baseHp   + boots.getBonusHp()   ;
@@ -274,7 +305,9 @@ public class Character implements BaseStat {
 					"%d ATK%n".formatted(finalAtk) +
 					"%d DEF%n".formatted(finalDef) +
 					"%d CC%n".formatted(finalCc) +
-					"%d Chance%n".formatted(finalLuck);
+					"%d LC%n".formatted(finalLuck) +
+					"%d LVL%n".formatted(finalLvl) +
+					"%d XP%n".formatted(finalXp);
 		}
 		
 		return "Class : %s%n".formatted(characterClass) +
@@ -282,7 +315,10 @@ public class Character implements BaseStat {
 				"%d ATK%n".formatted(finalAtk) +
 				"%d DEF%n".formatted(finalDef) +
 				"%d CC%n".formatted(finalCc) +
-				"%d Chance%n".formatted(finalLuck);
+				"%d LC%n".formatted(finalLuck) +
+				"%d LVL%n".formatted(finalLvl) +
+				"%d XP%n".formatted(finalXp);
+		
 	}
 	
 }

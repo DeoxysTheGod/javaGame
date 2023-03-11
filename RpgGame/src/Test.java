@@ -51,5 +51,11 @@ public class Test {
 		System.out.println(c1);
 		c1.giveXp(120);
 		System.out.println(c1);
+		c1.takeXp(124);
+		System.out.println(c1);
+		c1.giveXp(340);
+		System.out.println(c1);
+		c1.takeLvl(2);
+		System.out.println(c1);
 	}
 }

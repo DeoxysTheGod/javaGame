@@ -74,6 +74,9 @@ public class Character implements BaseStat {
 		// Equipements
 		this.helmet = null;
 		this.ring = null;
+		this.chestplate = null;
+		this.boots = null;
+		this.legging = null;
 		
 		// Final Stat
 		this.finalHp   = this.baseHp   ;

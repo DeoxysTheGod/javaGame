@@ -38,7 +38,7 @@ public class Test {
 		c1.getStuff();
 		
 		// Atk test
-		System.out.println("**********");
+		System.out.println("**** Atk test ****");
 		Character c2 = new Character("Robber");
 		System.out.println(c1);
 		System.out.println(c2);
@@ -47,7 +47,8 @@ public class Test {
 		System.out.println(c2);
 		
 		// Lvl test
-		System.out.println("**********");
+		System.out.println("**** Lvl test ****");
+		System.out.println(c1);
 		c1.giveXp(120);
 		System.out.println(c1);
 	}

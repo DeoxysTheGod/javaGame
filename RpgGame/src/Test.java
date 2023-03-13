@@ -57,5 +57,9 @@ public class Test {
 		System.out.println(c1);
 		c1.takeLvl(2);
 		System.out.println(c1);
+
+		c1.attack(c2);
+		System.out.println(c1);
+		System.out.println(c2);
 	}
 }

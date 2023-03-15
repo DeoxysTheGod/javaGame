@@ -12,37 +12,39 @@ import equipements.rings.*;
 
 public class Character implements BaseStat {
 
-	private CharacterClass characterClass;
-	private Inventory inventory;
+	private CharacterClass characterClass ;
+	private Inventory inventory		 	  ;
 	
 	// Base Stat
 	private int baseHp   	   	;
 	private int baseAtk  	   	;
 	private int baseDef  	   	;
 	private int baseCc   	   	;
+	private int baseSpeed		;
 	private int baseLuck 	   	;
 	private int baseLvl	 	   	;
 	private int baseXp	 	   	;
 	private int baseAmountLvlUp	;
 	
 	// Equipements
-	private Stuff boots		 ;
-	private Stuff chestplate ;
-	private Stuff helmet	 ;
-	private Stuff legging	 ;
-	private Stuff ring		 ;
+	private Stuff boots		  ;
+	private Stuff chestplate  ;
+	private Stuff helmet	  ;
+	private Stuff legging	  ;
+	private Stuff ring		  ;
 	
 	// Final Stat
-	private int finalHp   ;
-	private int finalAtk  ;
-	private int finalDef  ;
-	private int finalCc   ;
-	private int finalLuck ;
-	private int finalLvl  ;
-	private int finalXp	  ;
+	public int finalHp     ;
+	private int finalAtk   ;
+	public int finalDef    ;
+	private int finalCc    ;
+	private int finalSpeed ;
+	private int finalLuck  ;
+	private int finalLvl   ;
+	private int finalXp	   ;
 	
 	// Status
-	private boolean dead;
+	public boolean dead;
 		
 	public Character(String characterClass) {
 		switch(characterClass) {
@@ -62,14 +64,15 @@ public class Character implements BaseStat {
 		this.inventory = new Inventory();
 		
 		// Stat
-		this.baseHp   		 = BaseStat.hp     + this.characterClass.getBonusHp()   ;
-		this.baseAtk  		 = BaseStat.atk    + this.characterClass.getBonusAtk()  ;
-		this.baseDef  		 = BaseStat.def    + this.characterClass.getBonusDef()  ;
-		this.baseCc   		 = BaseStat.cc     + this.characterClass.getBonusCc()   ;
-		this.baseLuck 		 = BaseStat.luck   + this.characterClass.getBonusLuck() ;
-		this.baseLvl  		 = BaseStat.lvl							   			    ;
-		this.baseXp   		 = BaseStat.xp											;
-		this.baseAmountLvlUp = BaseStat.amountLvlUp							 		;
+		this.baseHp   		 = BaseStat.hp     + this.characterClass.getBonusHp()    ;
+		this.baseAtk  		 = BaseStat.atk    + this.characterClass.getBonusAtk()   ;
+		this.baseDef  		 = BaseStat.def    + this.characterClass.getBonusDef()   ;
+		this.baseCc   		 = BaseStat.cc     + this.characterClass.getBonusCc()    ;
+		this.baseLuck 		 = BaseStat.luck   + this.characterClass.getBonusLuck()  ;
+		this.baseSpeed		 = BaseStat.speed  + this.characterClass.getBonusSpeed() ;
+		this.baseLvl  		 = BaseStat.lvl							   			     ;
+		this.baseXp   		 = BaseStat.xp											 ;
+		this.baseAmountLvlUp = BaseStat.amountLvlUp							 		 ;
 		
 		// Equipements
 		this.helmet = null;
@@ -79,19 +82,54 @@ public class Character implements BaseStat {
 		this.legging = null;
 		
 		// Final Stat
-		this.finalHp   = this.baseHp   ;
-		this.finalAtk  = this.baseAtk  ;
-		this.finalDef  = this.baseDef  ;
-		this.finalCc   = this.baseCc   ;
-		this.finalLuck = this.baseLuck ;
-		this.finalLvl  = this.baseLvl  ;
-		this.finalXp   = this.baseXp   ;
+		this.finalHp    = this.baseHp    ;
+		this.finalAtk   = this.baseAtk   ;
+		this.finalDef   = this.baseDef   ;
+		this.finalCc    = this.baseCc    ;
+		this.finalSpeed = this.baseSpeed ;
+		this.finalLuck  = this.baseLuck  ;
+		this.finalLvl   = this.baseLvl   ;
+		this.finalXp    = this.baseXp    ;
 	}
 	
 	// Getter
+	
+	public int getFinalHp() {
+		return finalHp;
+	}
+
+	public int getFinalAtk() {
+		return finalAtk;
+	}
+
+	public int getFinalDef() {
+		return finalDef;
+	}
+
+	public int getFinalCc() {
+		return finalCc;
+	}
+
+	public int getFinalSpeed() {
+		return finalSpeed;
+	}
+
+	public int getFinalLuck() {
+		return finalLuck;
+	}
+
+	public int getFinalLvl() {
+		return finalLvl;
+	}
+
+	public int getFinalXp() {
+		return finalXp;
+	}
+	
 	public Stuff getBoots() {
 		return boots;
 	}
+	
 	public Stuff getChestplate() {
 		return chestplate;
 	}
@@ -103,6 +141,10 @@ public class Character implements BaseStat {
 	}
 	public Stuff getRing() {
 		return ring;
+	}
+	
+	public CharacterClass getCharacterClass() {
+		return characterClass;
 	}
 	
 	public String getBootsInfo() {
@@ -135,13 +177,39 @@ public class Character implements BaseStat {
 			System.out.println(boots.toString());
 	}
 	
+	// Setter
+	
+	public void setFinalHp(int finalHp) {
+		this.finalHp = finalHp;
+	}
+
+	public void setFinalAtk(int finalAtk) {
+		this.finalAtk = finalAtk;
+	}
+
+	public void setFinalDef(int finalDef) {
+		this.finalDef = finalDef;
+	}
+
+	public void setFinalCc(int finalCc) {
+		this.finalCc = finalCc;
+	}
+
+	public void setFinalSpeed(int finalSpeed) {
+		this.finalSpeed = finalSpeed;
+	}
+
+	public void setFinalLuck(int finalLuck) {
+		this.finalLuck = finalLuck;
+	}
+	
 	// Stats
 	
 	public void giveXp(int amount) {
 		this.finalXp += amount;
 		updateLvl();
 	}
-	
+
 	public void takeXp(int amount) {
 	    this.finalXp -= amount;
 	    while (this.finalXp < 0) {
@@ -208,46 +276,52 @@ public class Character implements BaseStat {
 	
 	public void updateStat() {
 		
-		this.finalHp   = this.baseHp   ;
-		this.finalAtk  = this.baseAtk  ;
-		this.finalDef  = this.baseDef  ;
-		this.finalCc   = this.baseCc   ;
-		this.finalLuck = this.baseLuck ;
+		this.finalHp    = this.baseHp    ;
+		this.finalAtk   = this.baseAtk   ;
+		this.finalDef   = this.baseDef   ;
+		this.finalCc    = this.baseCc    ;
+		this.finalSpeed = this.baseSpeed ;
+		this.finalLuck  = this.baseLuck  ;
 		
 		if (boots != null) {
-			this.finalHp   = this.baseHp   + boots.getBonusHp()   ;
-			this.finalAtk  = this.baseAtk  + boots.getBonusAtk()  ;
-			this.finalDef  = this.baseDef  + boots.getBonusDef()  ;
-			this.finalCc   = this.baseCc   + boots.getBonusCc()   ;
-			this.finalLuck = this.baseLuck + boots.getBonusLuck() ;
+			this.finalHp    = this.baseHp    + boots.getBonusHp()    ;
+			this.finalAtk   = this.baseAtk   + boots.getBonusAtk()   ;
+			this.finalDef   = this.baseDef   + boots.getBonusDef()   ;
+			this.finalCc    = this.baseCc    + boots.getBonusCc()    ;
+			this.finalSpeed = this.baseSpeed + boots.getBonusSpeed() ;
+			this.finalLuck  = this.baseLuck  + boots.getBonusLuck()  ;
 		}
 		if (chestplate != null) {
-			this.finalHp   = this.baseHp   + chestplate.getBonusHp()   ;
-			this.finalAtk  = this.baseAtk  + chestplate.getBonusAtk()  ;
-			this.finalDef  = this.baseDef  + chestplate.getBonusDef()  ;
-			this.finalCc   = this.baseCc   + chestplate.getBonusCc()   ;
-			this.finalLuck = this.baseLuck + chestplate.getBonusLuck() ;
+			this.finalHp    = this.baseHp    + chestplate.getBonusHp()    ;
+			this.finalAtk   = this.baseAtk   + chestplate.getBonusAtk()   ;
+			this.finalDef   = this.baseDef   + chestplate.getBonusDef()   ;
+			this.finalCc    = this.baseCc    + chestplate.getBonusCc()    ;
+			this.finalSpeed = this.baseSpeed + chestplate.getBonusSpeed() ;
+			this.finalLuck  = this.baseLuck  + chestplate.getBonusLuck()  ;
 		}
 		if (helmet != null) {
-			this.finalHp   = this.baseHp   + helmet.getBonusHp()   ;
-			this.finalAtk  = this.baseAtk  + helmet.getBonusAtk()  ;
-			this.finalDef  = this.baseDef  + helmet.getBonusDef()  ;
-			this.finalCc   = this.baseCc   + helmet.getBonusCc()   ;
-			this.finalLuck = this.baseLuck + helmet.getBonusLuck() ;
+			this.finalHp    = this.baseHp    + helmet.getBonusHp()    ;
+			this.finalAtk   = this.baseAtk   + helmet.getBonusAtk()   ;
+			this.finalDef   = this.baseDef   + helmet.getBonusDef()   ;
+			this.finalCc    = this.baseCc    + helmet.getBonusCc()    ;
+			this.finalSpeed = this.baseSpeed + helmet.getBonusSpeed() ;
+			this.finalLuck  = this.baseLuck  + helmet.getBonusLuck()  ;
 		}
 		if (legging != null) {
-			this.finalHp   = this.baseHp   + legging.getBonusHp()   ;
-			this.finalAtk  = this.baseAtk  + legging.getBonusAtk()  ;
-			this.finalDef  = this.baseDef  + legging.getBonusDef()  ;
-			this.finalCc   = this.baseCc   + legging.getBonusCc()   ;
-			this.finalLuck = this.baseLuck + legging.getBonusLuck() ;
+			this.finalHp    = this.baseHp    + legging.getBonusHp()    ;
+			this.finalAtk   = this.baseAtk   + legging.getBonusAtk()   ;
+			this.finalDef   = this.baseDef   + legging.getBonusDef()   ;
+			this.finalCc    = this.baseCc    + legging.getBonusCc()    ;
+			this.finalSpeed = this.baseSpeed + legging.getBonusSpeed() ;
+			this.finalLuck  = this.baseLuck  + legging.getBonusLuck()  ;
 		}
 		if (ring != null) {
-			this.finalHp   = this.baseHp   + ring.getBonusHp()   ;
-			this.finalAtk  = this.baseAtk  + ring.getBonusAtk()  ;
-			this.finalDef  = this.baseDef  + ring.getBonusDef()  ;
-			this.finalCc   = this.baseCc   + ring.getBonusCc()   ;
-			this.finalLuck = this.baseLuck + ring.getBonusLuck() ;
+			this.finalHp    = this.baseHp    + ring.getBonusHp()    ;
+			this.finalAtk   = this.baseAtk   + ring.getBonusAtk()   ;
+			this.finalDef   = this.baseDef   + ring.getBonusDef()   ;
+			this.finalCc    = this.baseCc    + ring.getBonusCc()    ;
+			this.finalSpeed = this.baseSpeed + ring.getBonusSpeed() ;
+			this.finalLuck  = this.baseLuck  + ring.getBonusLuck()  ;
 		}
 	}
 	
@@ -343,6 +417,7 @@ public class Character implements BaseStat {
 				opponent.dead = true;
 			opponent.finalHp = 0;
 		}
+		opponent.updateStat();
 	}
 	
 	// toString
@@ -350,22 +425,24 @@ public class Character implements BaseStat {
 	public String toString() {
 		if (this.isDead()) {
 			return "Class : [DEAD] %s%n".formatted(characterClass) +
-					"%d PV%n".formatted(finalHp) +
-					"%d ATK%n".formatted(finalAtk) +
-					"%d DEF%n".formatted(finalDef) +
-					"%d CC%n".formatted(finalCc) +
-					"%d LC%n".formatted(finalLuck) +
-					"%d LVL%n".formatted(finalLvl) +
+					"%d PV%n".formatted(finalHp) 	   +
+					"%d ATK%n".formatted(finalAtk)     +
+					"%d DEF%n".formatted(finalDef) 	   +
+					"%d CC%n".formatted(finalCc) 	   +
+					"%d SPEED%n".formatted(finalSpeed) +
+					"%d LUCK%n".formatted(finalLuck)   +
+					"%d LVL%n".formatted(finalLvl)     +
 					"%d XP%n".formatted(finalXp);
 		}
 		
 		return "Class : %s%n".formatted(characterClass) +
-				"%d PV%n".formatted(finalHp) +
-				"%d ATK%n".formatted(finalAtk) +
-				"%d DEF%n".formatted(finalDef) +
-				"%d CC%n".formatted(finalCc) +
-				"%d LC%n".formatted(finalLuck) +
-				"%d LVL%n".formatted(finalLvl) +
+				"%d PV%n".formatted(finalHp) 			+
+				"%d ATK%n".formatted(finalAtk) 			+
+				"%d DEF%n".formatted(finalDef) 			+
+				"%d CC%n".formatted(finalCc) 			+
+				"%d SPEED%n".formatted(finalSpeed) 		+
+				"%d LUCK%n".formatted(finalLuck) 		+
+				"%d LVL%n".formatted(finalLvl) 			+
 				"%d XP%n".formatted(finalXp);
 		
 	}

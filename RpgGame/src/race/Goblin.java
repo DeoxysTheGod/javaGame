@@ -1,13 +1,11 @@
-package classes;
+package race;
 
-public class Robber extends CharacterClass {
+public class Goblin extends MonsterRace {
 
 	private int bonusHp    = 0  ;
-	private int bonusAtk   = 10 ;
+	private int bonusAtk   = 5  ;
 	private int bonusDef   = 0  ;
-	private int bonusCc    = 3  ;
-	private int bonusSpeed = 5  ;
-	private int bonusLuck  = 10 ;
+	private int bonusSpeed = 10 ;
 
 	// Getter
 	
@@ -25,23 +23,13 @@ public class Robber extends CharacterClass {
 	public int getBonusDef() {
 		return bonusDef;
 	}
-
-	@Override
-	public int getBonusCc() {
-		return bonusCc;
-	}
 	
 	@Override
 	public int getBonusSpeed() {
 		return bonusSpeed;
 	}
 
-	@Override
-	public int getBonusLuck() {
-		return bonusLuck;
-	}
-
 	public String toString() {
-		return "Robber";
+		return "Goblin";
 	}
 }

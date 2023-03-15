@@ -1,6 +1,7 @@
 import character.Character;
 import equipements.helmets.*;
 import equipements.rings.*;
+import monster.Monster;
 
 public class Test {
 
@@ -61,5 +62,13 @@ public class Test {
 		c1.attack(c2);
 		System.out.println(c1);
 		System.out.println(c2);
+		
+		// Combat test (sans loop juste un personnage qui tape sur un monstre)
+		System.out.println("**** Combat test ****");
+		System.out.println(c1);
+		Monster m1 = new Monster("Goblin");
+		System.out.println(m1);
+		m1.attack(c1);
+		System.out.println(c1);
 	}
 }

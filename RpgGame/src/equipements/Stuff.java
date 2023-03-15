@@ -26,22 +26,24 @@ public class Stuff {
 	 */
 	protected String name;
 	
-	protected int bonusHp;
-	protected int bonusAtk;
-	protected int bonusDef;
-	protected int bonusCc;
-	protected int bonusLuck;
+	protected int bonusHp	;
+	protected int bonusAtk	;
+	protected int bonusDef	;
+	protected int bonusSpeed;
+	protected int bonusCc	;
+	protected int bonusLuck	;
 
 	protected double dropRate;
 
 	public Stuff() {
 		this.name = "Rien";
 
-		this.bonusHp = 0;
-		this.bonusAtk = 0;
-		this.bonusDef = 0;
-		this.bonusCc = 0;
-		this.bonusLuck = 0;
+		this.bonusHp 	= 0;
+		this.bonusAtk 	= 0;
+		this.bonusDef 	= 0;
+		this.bonusSpeed = 0;
+		this.bonusCc 	= 0;
+		this.bonusLuck 	= 0;
 
 		this.dropRate = 0.0;
 	}
@@ -67,6 +69,10 @@ public class Stuff {
 	public int getBonusCc() {
 		return bonusCc;
 	}
+	
+	public int getBonusSpeed() {
+		return bonusSpeed;
+	}	
 
 	public int getBonusLuck() {
 		return bonusLuck;
@@ -74,5 +80,5 @@ public class Stuff {
 
 	public double getDropRate() {
 		return dropRate;
-	}	
+	}
 }

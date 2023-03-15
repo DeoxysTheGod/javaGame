@@ -60,7 +60,7 @@
 												"$ref": "AAAAAAGG0bSSzACef5Q="
 											},
 											"fillColor": "#c082ff",
-											"font": "Arial;13;1",
+											"font": "Arial;13;3",
 											"left": 1237,
 											"top": 311,
 											"width": 133.15478515625,
@@ -190,7 +190,7 @@
 												"$ref": "AAAAAAGG0bpf5AEZUUY="
 											},
 											"fillColor": "#c082ff",
-											"font": "Arial;13;0",
+											"font": "Arial;13;2",
 											"left": 1237,
 											"top": 372,
 											"width": 133.15478515625,
@@ -12879,7 +12879,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGG0bSSzACbhjw="
 							},
-							"name": "getName"
+							"name": "getName",
+							"isAbstract": true
 						},
 						{
 							"_type": "UMLOperation",
@@ -12889,7 +12890,8 @@
 							},
 							"name": "setName"
 						}
-					]
+					],
+					"isAbstract": true
 				},
 				{
 					"_type": "UMLClass",

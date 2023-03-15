@@ -6,6 +6,7 @@ public interface BaseStat {
 	static int atk  		= 	 10;  // Attaque
 	static int def  		=    10;  // Défense
 	static int cc   		=     0;  // Coup Critique
+	static int speed		=	  0;  // Vitesse
 	static int luck 		=     0;  // Chance
 	static int lvl  		=     0;  // Niveau
 	static int xp			=  	  0;  // Expérience

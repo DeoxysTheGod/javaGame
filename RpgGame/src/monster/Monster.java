@@ -115,7 +115,7 @@ public class Monster implements BaseStat {
 			return;
 		}
 		int tmp = opponent.finalHp;
-		opponent.finalHp -= (this.finalAtk - (this.finalAtk * opponent.finalDef / 100));
+		opponent.finalHp -= (this.finalAtk * (1- (1 - Math.pow(0.8, (double)opponent.finalDef/100))));
 		if (opponent.finalHp <= 0) {
 				opponent.dead = true;
 			opponent.finalHp = 0;

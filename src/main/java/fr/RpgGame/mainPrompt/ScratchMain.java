@@ -1,4 +1,4 @@
-package fr.RpgGame.main;
+package fr.RpgGame.mainPrompt;
 
 import fr.RpgGame.entity.alive.character.enemy.boss.Boss;
 import fr.RpgGame.entity.alive.character.enemy.boss.RoiDairat;
